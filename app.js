@@ -1,21 +1,28 @@
-var totalCost, foodCost, rentCost, clothsCost, income, currentBalance;
+var totalCost, foodCost, rentCost, clothsCost, income, currentBalance, nanTag;
 
-
+nanTag = document.getElementById('NaN-error')
 
 // error function 
-function errorMessege(errorType) {
-    var errorElement = document.getElementById(errorType + '-error')
-    errorElement.classList.remove('hidden');
-}
 
 
-function numberValidation(inputName) {
-    if (true || inputName == '' || isNaN(inputName)) {
-        errorMessege('NaN')
+
+// function numberValidation(inputName) {;
+
+//     if (inputName == '' || isNaN(inputName)) {
+//         nanTag.classList.remove('hidden');
+//     } else {
+//         nanTag.classList.add('hidden');
+//     }
+
+// }
+function numberValidation(inputValue) {
+    if (inputValue == '' || isNaN(inputValue)) {
+        nanTag.classList.remove('hidden')
+    } else {
+        nanTag.classList.add('hidden')
+
     }
-    return false
 }
-
 
 
 
@@ -24,18 +31,26 @@ function numberValidation(inputName) {
 document.getElementById('btn-calc').addEventListener('click', function() {
 
     let foodtag = document.getElementById('food-cost');
+
     let renttag = document.getElementById('rent-cost');
     let clothstag = document.getElementById('cloths-cost');
 
     // value 
     var foodValue = foodtag.value;
+    numberValidation(foodValue)
+
+
+
     var rentValue = renttag.value;
     var clothsValue = clothstag.value;
 
     // parse  
     foodCost = parseInt(foodValue)
+
     rentCost = parseInt(rentValue)
+
     clothsCost = parseInt(clothsValue)
+
     totalCost = foodCost + rentCost + clothsCost;
 
     // display total expense
@@ -45,9 +60,12 @@ document.getElementById('btn-calc').addEventListener('click', function() {
     totalExpenseTag.innerText = totalCost;
 
 
+
     // update balance 
     var incomeTag = document.getElementById('total-income');
     var incomeValue = incomeTag.value;
+
+
     income = parseInt(incomeValue);
     currentBalance = income - totalCost;
 
@@ -58,12 +76,9 @@ document.getElementById('btn-calc').addEventListener('click', function() {
         document.getElementById('extravagant-error').classList.add('hidden');
         var balanceTag = document.getElementById('total-balance');
         balanceTag.innerText = currentBalance;
-    } else {
+    } else if (currentBalance < 0) {
         document.getElementById('extravagant-error').classList.remove('hidden');
-
-
     }
-
 
 
 
