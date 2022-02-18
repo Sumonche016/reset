@@ -10,7 +10,7 @@ function errorMessege(errorType) {
 
 
 function numberValidation(inputName) {
-    if (inputName == '' || isNaN(inputName)) {
+    if (true || inputName == '' || isNaN(inputName)) {
         errorMessege('NaN')
     }
     return false
@@ -46,14 +46,25 @@ document.getElementById('btn-calc').addEventListener('click', function() {
 
 
     // update balance 
-
-    var balanceTag = document.getElementById('total-balance');
-
     var incomeTag = document.getElementById('total-income');
     var incomeValue = incomeTag.value;
     income = parseInt(incomeValue);
     currentBalance = income - totalCost;
-    balanceTag.innerText = currentBalance;
+
+
+    // error handle for negative balance 
+
+    if (currentBalance > 0) {
+        document.getElementById('extravagant-error').classList.add('hidden');
+        var balanceTag = document.getElementById('total-balance');
+        balanceTag.innerText = currentBalance;
+    } else {
+        document.getElementById('extravagant-error').classList.remove('hidden');
+
+
+    }
+
+
 
 
 
