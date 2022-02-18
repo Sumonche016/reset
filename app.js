@@ -12,7 +12,6 @@ function numberValidation(inputValue) {
     } else {
         nanTag.classList.add('hidden');
 
-
     }
 
 }
@@ -34,7 +33,7 @@ function positiveCheck(inputName) {
 }
 
 
-
+// event for debit and credit 
 document.getElementById('btn-calc').addEventListener('click', function() {
     nanTag = document.getElementById('NaN-error');
 
@@ -55,7 +54,7 @@ document.getElementById('btn-calc').addEventListener('click', function() {
     rentCost = parseInt(rentValue)
     clothsCost = parseInt(clothsValue)
 
-    //error handle
+    //error handle for negative
     positiveCheck(clothsCost);
     positiveCheck(foodCost);
     positiveCheck(rentCost);
@@ -89,21 +88,21 @@ document.getElementById('btn-calc').addEventListener('click', function() {
     } else if (currentBalance < 0) {
         document.getElementById('extravagant-error').classList.remove('hidden');
     }
-    // console.log(positiveText)
+
 
 
 })
 
 
-// saving btn
+// saving  handle
 
 document.getElementById('save-btn').addEventListener('click', function() {
 
     var saveTag = document.getElementById('save-input')
     var saveValue = saveTag.value;
 
-    numberValidation(saveValue);
 
+    numberValidation(saveValue);
     var savePercent = parseInt(saveValue)
 
     positiveCheck(savePercent)
@@ -117,4 +116,11 @@ document.getElementById('save-btn').addEventListener('click', function() {
     var remainbalance = document.getElementById('remain-balance')
     remainbalance.innerText = currentBalance - saveMoney;
 
+})
+
+
+// load again 
+
+document.getElementById('reset-btn').addEventListener('click', function() {
+    window.location.reload();
 })
