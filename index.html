@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="lg:px-10">
+    <h1 class="text-[#59A5FF] text-center text-3xl font-bold my-5">Debit Credit</h1>
+    <div class="w-4/3">
+
+        <!-- grid container  -->
+
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div>
+                <img src="./New folder/9017.jpg" alt="">
+            </div>
+
+            <!-- input section  -->
+
+            <div class="bg-[#F8F8F8] p-[1rem] lg:p-[7rem]" id="error-container">
+                <p class="text-red-600 hidden mb-5" id="NaN-error"> ❌Hey please enter a valid input ❌ Reset The Button And Try again</p>
+                <h1 class="font-bold text-center mb-5 ">Income</h1>
+                <div class="flex justify-between mb-4 w-full">
+                    <label class="mr-3 w-[15%] font-semibold">Income:</label>
+                    <input type="text" id="total-income" class="w-[85%] bg-[#DCDCDC] p-2 rounded-sm" value="">
+                </div>
+                <h1 class="font-bold text-center mb-5">Expenses</h1>
+                <div class="flex mb-4">
+                    <label class="mr-3 w-[15%]">Food:</label>
+                    <input type="text" id="food-cost" class="w-[85%] bg-[#DCDCDC] p-2 rounded-sm" value="">
+                </div>
+                <div class="flex mb-4">
+                    <label class="mr-3 w-[15%] ">Rent:</label>
+                    <input type="text " id="rent-cost" class="w-[85%] bg-[#DCDCDC] p-2 rounded-sm " value=" ">
+                </div>
+                <div class="flex justify-between ">
+                    <label class="mr-3 w-[15%] ">Clothes:</label>
+                    <input type="text" id="cloths-cost" class="w-[85%] bg-[#DCDCDC] p-2 rounded-sm " value=" ">
+                </div>
+                <div class="flex justify-center mb-5 ">
+                    <button id="btn-calc" class=" shadow-md bg-[#59A5FF] px-7 py-2 rounded mt-5 cursor-pointer text-white font-bold text-center ">Calculate</button>
+                </div>
+
+                <h1 class="font-bold text-center mb-3 ">Total Expense: <span id="expense"></span></h1>
+                <p class="text-red-600 hidden " id="extravagant-error ">Ow sheet ⛔ You Are Extravagant Person .Please Be thrifty.Reset The Button And Try again</p>
+                <h1 class="font-bold text-center ">Balance: <span id="total-balance"></span> </h1>
+
+
+                <!-- saving section  -->
+
+                <div class="flex justify-around items-center my-8">
+                    <span>Save</span>
+                    <input type="number" class=" bg-[#DCDCDC] p-2 rounded-sm" value="" id="save-input">
+                    <span class="font-bold">%</span>
+                    <button class="shadow-md bg-[#59A5FF] px-7 py-2 rounded cursor-pointer text-white font-bold text-center " id="save-btn">Save</button>
+                </div>
+                <h1 class="font-bold text-center mb-3">Saving Amount:<span id="saving-amount">0</span> </h1>
+                <h1 class="font-bold text-center">Remaining Balance:<span id="remain-balance">0</span> </h1>
+
+                <div class="flex justify-center ">
+                    <button class="shadow-md bg-red-600 px-7 py-2 mt-5 rounded cursor-pointer text-white font-bold text-center " id="reset-btn ">Reset</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="app.js "></script>
+</body>
+
+</html>
